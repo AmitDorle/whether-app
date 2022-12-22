@@ -37,8 +37,9 @@ function App() {
   }, [city]);
 
   return (
-    <>
-      <h1 className="app-title">WHETHER APP</h1>
+    <div>
+      <h1 className="app-title">WEATHER APP</h1>
+      
       <div className="search-city-container">
         <input
           type="text"
@@ -58,7 +59,7 @@ function App() {
           <h3>{temp}</h3>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
