@@ -6,6 +6,8 @@ import "./App.css";
 function App() {
   const [city, setCity] = useState("Bhandara");
   const [temp, setTemp] = useState(0);
+  const [humidity, setHumidity] = useState('');
+  const [description, setDescription] = useState('');
 
   // async function loadData()
   // {
@@ -22,15 +24,15 @@ function App() {
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=701dece5fc7a948100a160ee07e89f9c`
       );
 
-      //fetching temp
+      
       const tempCel = Math.round(response.data.main.temp - 273.15);
       setTemp(`${tempCel} °C`);
 
-      // //fetching humidity
-      // setHumidity(`${response.data.main.humidity} %`);
+      
+      setHumidity(`${response.data.main.humidity} %`);
 
-      // //fetching description
-      // setDescription(response.data.weather[0].description);
+    
+      setDescription(response.data.weather[0].description);
     }
 
     loadData();
@@ -57,6 +59,14 @@ function App() {
         </div>
         <div className="show-box">
           <h3>{temp}</h3>
+        </div>
+      </div>
+      <div className="Show-box-container">
+        <div className="show-box">
+          <h3>{humidity}</h3>
+        </div>
+        <div className="show-box">
+          <h3>{description}</h3>
         </div>
       </div>
     </div>
